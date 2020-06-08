@@ -1,0 +1,79 @@
+
+
+
+5. add a ‘sculpting’/‘shaping’ tool               |                         |
+    -> push around and place the pre-drawn curves how you like
+6. make wireframe of UI                           |                         |
+    -> change button & slider styles
+    -> make corners rounder
+    -> fit to Bootstrap or follow design guide saved in Chrome bookmarks?
+7. Build UI                                       |                         |
+    -> build studio
+    -> publish
+        ->integrate w/ shopify or host w/ other provider & build yourself?
+    -> get feedback
+        -> subreddits like r/sideProject, r/ABTesting, roastmystartup, etc.
+    -> then build 'standard shopping method'
+    -> publish standard mix&match
+    -> set up collection of user behavior metrics
+        -> what questions need to answer?
+          1. what channel do people prefer?
+            a. % conversion of people Studio -> sale?
+            b. % conversion of people Traditional -> sale?
+            c. % of users who visit:
+                  - Studio site
+                    > how much time do they spend in the Studio?
+                  - Traditional shop site
+                  - both
+                    > what % start in Studio and buy from Traditional?
+                    > what % start in Traditional and buy from Studio?
+                    > what % don't buy at all?
+                    > what % buy from both?
+            e. avg # of items in order?
+
+          2. what should we focus on next?
+            - survey after checkout?
+            - survey for discount/free shipping offer right as someone adds something to cart?
+
+              a. how is the experience with the Studio?
+                  - "Tell us how you're feeling about your experience"
+              b. how is the experience with the Traditional?
+                  - "Tell us how you're feeling about your experience"
+              c. what other options should be available for customization on products?
+              d. what other products would you like to see in the Store?
+
+
+
+
+
+
+
+
+Features to Add:
+  easy:
+    checkbox for showing mirror
+
+  medium:
+    add an ‘eraser’ tool                              |///                      |
+        —> use the push/pop for objects out of the array in order to erase
+        -> Do not just paint over it*
+    event logger -> ability to undo last move
+
+  hard:
+    rotation amount selection/type
+    find way to export svg file of sketch*
+
+  hardest:
+    build out export as obj/stl file functionality for P5 -> contribute this back to the project
+
+  benched:
+    make 'object-logging' speed faster             |                         |
+        -> this might be as easy as setting the refresh rate on the p5.js draw function lower
+    add autofill lines                             |-------not needed?------|
+      -> how close is circle[i] to circle [i+1]? (call it d)
+          > if (d < toleranceMin || d > toleranceMax){do nothing}
+                a. if distance is greater than max-fill-tolerance: ignore
+                b. if distance is less than min-fill-tolerance: ignore
+          > if (d > toleranceMin && d < toleranceMax){ add additional circles between those 2 circles}
+                a. if distance is greater than min-fill-tolerance & less than max-fill-tolerance, add in circle
+                b. add circle at circle[i+1] index and shift everything (starting from original circle[i+1]) 1 index over.
