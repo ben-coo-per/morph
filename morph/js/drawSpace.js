@@ -1,4 +1,4 @@
-var canvasSizes = {x: window.window.innerWidth*0.44, y: window.window.innerHeight*0.5};
+var canvasSizes = {x: window.window.innerWidth*0.25, y: window.window.innerHeight*0.5};
 var shapeArray = [];
 var tempArray = [];
 var renderPoly = {x:10,y:5};

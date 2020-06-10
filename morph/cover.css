@@ -162,8 +162,8 @@ body {
   }
 }
 
-#drawSpace-div{
-  /* width:45vw;
+/* #drawSpace-div{
+  width:45vw;
   height:60vh;
   border-radius:50px;
   background:rgb(200,200,200);
@@ -172,12 +172,18 @@ body {
   align-items: center;
 } */
 
-#threeD-div{
+/* #threeD-div{
   width:45vw;
   height:61vh;
   border-radius:50px;
   background:rgb(250,20,100);
   display: flex;
-  justify-content: center;/* This centers our sketch horizontally. */
-  align-items: center; /* This centers our sketch vertically. */
+  justify-content: center;
+  align-items: center;
+} */
+
+.creationSpace{
+  padding: 1em;
+  background-color: #f4f1f2;
+
 }
