@@ -1,9 +1,17 @@
-var canvasSizes = {x: window.window.innerWidth*0.25, y: window.window.innerHeight*0.5};
+
+var canvasSizes = {x: window.window.innerWidth*0.4, y: window.window.innerHeight*0.6};
 var shapeArray = [];
 var tempArray = [];
 var renderPoly = {x:10,y:5};
 var renderBinary = 0; //0 = not rendering & 1 = rendering
 
+// window.addEventListener('resize', resizeCanvas, false);
+
+//
+// resizeCanvas(){
+//  var canvasSizes = {x: window.window.innerWidth*0.35, y: window.window.innerHeight*0.5};
+//
+// }
 
 var sketch1 = function(p){
 
@@ -18,7 +26,7 @@ var sketch1 = function(p){
     p.canvas = p.createCanvas(canvasSizes.x,canvasSizes.y);
 
     p.drawSpace = p.createGraphics(p.canvas.width, p.canvas.height);
-    p.drawSpace.background(200);
+    // p.drawSpace.background(200);
   };
 
 //-----------standard draw loop---------
@@ -106,7 +114,7 @@ var sketch1 = function(p){
 //--------Buttons----------
     p.clearDrawSpace = function() {
       let justCleared = p.shapeArray.splice(0, p.shapeArray.length);
-      p.drawSpace.background(200);
+      p.drawSpace.background(p.color(244, 241,242));
       p.drawSpace.stroke(1);
     }
     p.toggleCircleBrush = function(){
@@ -125,7 +133,6 @@ var sketch1 = function(p){
 
   }
 var myDrawSpace = new p5(sketch1,"drawSpace-div");
-
 
 var sketch2 = function(p){
   p.angle = {x:1.5708, y:0};;

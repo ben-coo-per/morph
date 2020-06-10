@@ -15,10 +15,10 @@ a:hover {
 .btn-default,
 .btn-default:hover,
 .btn-default:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritance from `body` */
+  /* color: #333;
+  text-shadow: none;
   background-color: #fff;
-  border: 1px solid #fff;
+  border: 1px solid #fff; */
 }
 
 
@@ -59,7 +59,6 @@ body {
 .inner {
   padding: 30px;
 }
-
 
 /*
  * Header
@@ -185,5 +184,13 @@ body {
 .creationSpace{
   padding: 1em;
   background-color: #f4f1f2;
+  height:75vh;
+  border-radius:50px;
+}
+
+.creationSpace-toolbar{
+  margin:50;
+  padding-left: 10vw;
+  padding-right: 10vw;
 
 }

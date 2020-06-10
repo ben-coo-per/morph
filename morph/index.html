@@ -29,7 +29,6 @@
       <div class="site-wrapper-inner">
 
         <div class="cover-container">
-
           <div class="masthead clearfix">
             <div class="inner">
               <h3 class="masthead-brand">morph</h3>
@@ -42,47 +41,46 @@
               </nav>
             </div>
           </div>
+        </div>
+
 
           <div class="inner cover">
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: red;">
+            <div class="flex-row">
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <div class="card creationSpace">
                   <div class="card-body ">
                     <h5 class="card-title">drawspace</h5>
                     <div id="drawSpace-div"></div>
-                    <button id="squareBrushButton" onclick="myDrawSpace.toggleSquareBrush()">square</button>
-                    <button id="circleBrushButton" onclick="myDrawSpace.toggleCircleBrush()">circle</button>
-                    <div class="slidecontainer">
-                      <input type="range" min="4" max="20" value="9" class="slider" id="thicknessSlider">
+                    <div class="btn-toolbar creationSpace-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                      <div class="btn-group mr-2" role="group" aria-label="First Group">
+                        <button id="squareBrushButton" class="btn-default btn-secondary" onclick="myDrawSpace.toggleSquareBrush()">square</button>
+                        <button id="circleBrushButton" class="btn-default btn-secondary" onclick="myDrawSpace.toggleCircleBrush()">circle</button>
+                        <div class="slidecontainer">
+                          <input type="range" min="4" max="20" value="9" class="slider" id="thicknessSlider">
+                        </div>
+                      </div>
+                      <div class="btn-group mr-2" role="group" aria-label="Second Group">
+                      <button id="clearButton" class="btn-default btn-secondary" onclick="myDrawSpace.clearDrawSpace()">clear</button>
                     </div>
-                    <button id="clearButton" onclick="myDrawSpace.clearDrawSpace()">clear</button>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: blue;">
+          </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
               <div class="card creationSpace">
                 <div class="card-body">
                   <h5 class="card-title">preview</h5>
                   <div id="threeD-div"></div>
-                  <button id="renderButton" onclick="render()">render</button>
+                  <div class="btn-toolbar creationSpace-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First Group">
+                      <button id="renderButton" class="btn-default" onclick="render()">render</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
-
-
-
-
-            <!-- <h1 class="cover-heading">Cover your page.</h1>
-            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-            <p class="lead">
-              <a href="#" class="btn btn-lg btn-default">Learn more</a> -->
-            </p>
-
-
-          </div>
-
           <div class="mastfoot">
             <!-- <div class="inner">
               <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
@@ -91,9 +89,10 @@
 
         </div>
 
-      </div>
+
 
     </div>
+  </div>
 
 
 
