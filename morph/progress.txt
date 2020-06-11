@@ -1,3 +1,20 @@
+improve rotation:
+  maybe just do only around the y axis?
+
+fiddle around with vertex shape creation:
+  toruses are great but cant give flexibility
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -147,17 +147,24 @@ var sketch2 = function(p){
     p.threeDCanvas = p.createCanvas(canvasSizes.x, canvasSizes.y, p.WEBGL);
     // p.threeDCanvas.parent('threeD-div');
 
-    p.background(140,0,130,30);
+    p.background(p.color(244, 241,242));
   }
 
   p.draw = function(){
-    p.directionalLight(255,255,70,0,1,1,-1);
+    p.rSlider = document.getElementById("rSlider");
+    p.gSlider = document.getElementById("gSlider");
+    p.bSlider = document.getElementById("bSlider");
+    p.materialColor = p.color(p.rSlider.value, p.gSlider.value, p.bSlider.value)
+
+
+
+    p.directionalLight(255,255,255,0,1,1,-1);
     p.ambientLight(20);
-    p.background(140,0,130,30);
+    p.background(p.color(244, 241,242));
     // p.fill(130,100,150);
     // p.directionalLight(255,255,230,-1,-1,0);
 
-    p.ambientMaterial(200,190,250);
+    p.ambientMaterial(p.materialColor);
     p.noStroke();
 
 
@@ -279,7 +286,7 @@ function render(){
 
   //change button text
   if (renderBinary == 0){
-    document.getElementById("renderButton").textContent = "stop rendering";
+    document.getElementById("renderButton").textContent = " stop ";
   } else {
     document.getElementById("renderButton").textContent = "render";
   };
