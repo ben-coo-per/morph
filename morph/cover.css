@@ -1,9 +1,11 @@
-/* stylelint-disable property-no-vendor-prefix */
-
-/*
- * Globals
- */
-
+/* CSS */
+:root{
+  --purple-x-11: hsla(265, 68%, 93%, 1);
+  --persian-indigo: hsla(255, 87%, 47%, 1);
+  --blue-jeans: hsla(201, 100%, 97%, 1);
+  --medium-spring-green: hsla(156, 100%, 97%, 1);
+  --orchid: hsla(301, 54%, 90%, 1);
+}
 /* Links */
 a,
 a:focus,
@@ -29,10 +31,11 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: #333;
+  /* background-color: #333; */
+  background-color: var(--persian-indigo);
 }
 body {
-  color: #fff;
+  /* color: #fff; */
   text-align: center;
   text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
 }
@@ -66,6 +69,8 @@ body {
 .masthead-brand {
   margin-top: 10px;
   margin-bottom: 10px;
+  color: #fff; /* IE8 proofing */
+  color: rgba(255, 255, 255, .75);
 }
 
 .masthead-nav > li {
