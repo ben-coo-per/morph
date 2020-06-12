@@ -135,22 +135,17 @@ var sketch1 = function(p){
 var myDrawSpace = new p5(sketch1,"drawSpace-div");
 
 var sketch2 = function(p){
-  p.angle = {x:1.5708, y:0};;
   p.sliceArray = [];
-  p.rotationAngleChange = {x:0, y:0.01};
-  p.rotationDecay = {x:0.97,y:0.97}
   p.mouseLogArray = [];
-  p.calcRotationBinary = 0;
-
 
   p.setup = function(array){
     p.threeDCanvas = p.createCanvas(canvasSizes.x, canvasSizes.y, p.WEBGL);
-    // p.threeDCanvas.parent('threeD-div');
 
     p.background(p.color(244, 241,242));
   }
 
   p.draw = function(){
+    p.orbitControl();
     p.rSlider = document.getElementById("rSlider");
     p.gSlider = document.getElementById("gSlider");
     p.bSlider = document.getElementById("bSlider");
@@ -161,27 +156,14 @@ var sketch2 = function(p){
     p.directionalLight(255,255,255,0,1,1,-1);
     p.ambientLight(20);
     p.background(p.color(244, 241,242));
-    // p.fill(130,100,150);
-    // p.directionalLight(255,255,230,-1,-1,0);
+
 
     p.ambientMaterial(p.materialColor);
     p.noStroke();
 
-
-    p.rotateY(p.angle.y);
-    p.rotateX(p.angle.x);
-
-    // if (renderBinary == 0){
-    //   p.sphere(10,3,3);
-    // };
-
-
-
     p.yAvg = p.findYCenter();
     p.drawSpaceWidth = myDrawSpace.width;
 
-    // p.stroke(0.1);
-    // p.fill(100,100,100);
     //--------------create slices from array and make toruses-----
     for (let i=0; i<shapeArray.length; i++){
           newSlice = new p.potslice(shapeArray[i]);
@@ -189,56 +171,9 @@ var sketch2 = function(p){
           if (renderBinary == 1){   //checks if rendering is on
             newSlice.createTorusSlice()
             p.sliceArray.push(p.newSlice)
-
-            if (p.calcRotationBinary) {
-            p.rotationChange = p.calcDeltaVector();
-            p.rotationAngleChange.x = p.rotationChange.x;
-            p.rotationAngleChange.y = p.rotationChange.y;
-
-            calcRotationBinary = 0;
-        }
           };
-
-    };
-    p.angle.x = (p.angle.x + p.rotationAngleChange.x) * p.rotationDecay.x;
-    p.angle.y = (p.angle.y + p.rotationAngleChange.y) * p.rotationDecay.y;
-  };
-
-//-------mouse rotation logging when dragged-------
-  p.mouseDragged = function() {
-    if (p.mouseX > 0 && p.mouseX < p.width && p.mouseY > 0 && p.mouseY < p.height){
-      p.newMouseLog = new p.mouseLog();
-      p.mouseLogArray.push(p.newMouseLog);
-      p.calcRotationBinary = 1;
     };
   };
-
-p.mouseLog = function(){
-  this.mX = p.mouseX;
-  this.mY = p.mouseY;
-};
-//-----------calculate the rotation from mouse drag input---------
-p.calcDeltaVector = function() {
-  this.rotationChange = {
-    x: 0,
-    y: 0
-  };
-  this.deltaSum = {
-    x: 0,
-    y: 0
-  };
-
-  for (let i = 1; i < p.mouseLogArray.length; i++) {
-    this.deltaSum.x += p.mouseLogArray[i].mX - p.mouseLogArray[i-1].mX;
-    this.deltaSum.y += p.mouseLogArray[i].mY - p.mouseLogArray[i-1].mY;
-  }
-
-  this.rotationChange.x = -this.deltaSum.y/1000;
-  this.rotationChange.y = this.deltaSum.x/1000;
-
-  return this.rotationChange
-}
-
 
 //------------creation and functions of potslices---------
   p.potslice = function(shape){

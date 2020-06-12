@@ -1,10 +1,22 @@
 /* CSS */
 :root{
+  /* option 1 for color scheme */
+  --bg-light: #3d5a80;
+  --graylights: #bfc0c0;
+  --mlightlights: #f4f1f2;
+  --mtextcolor:#ee6c4d;
+  --bg-dark: #293241;
+
+
+  /* option 2 for color scheme */
   --purple-x-11: hsla(265, 68%, 93%, 1);
   --persian-indigo: hsla(255, 87%, 47%, 1);
   --blue-jeans: hsla(201, 100%, 97%, 1);
   --medium-spring-green: hsla(156, 100%, 97%, 1);
   --orchid: hsla(301, 54%, 90%, 1);
+
+
+
 }
 /* Links */
 a,
@@ -32,7 +44,7 @@ html,
 body {
   height: 100%;
   /* background-color: #333; */
-  background-color: var(--persian-indigo);
+  background-color: var(--bg-dark);
 }
 body {
   /* color: #fff; */
@@ -42,6 +54,7 @@ body {
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
+  border-top: solid 4px var(--mtextcolor);
   display: table;
   width: 100%;
   height: 100%; /* For at least Firefox */
@@ -70,7 +83,7 @@ body {
   margin-top: 10px;
   margin-bottom: 10px;
   color: #fff; /* IE8 proofing */
-  color: rgba(255, 255, 255, .75);
+  color: var(--mtextcolor);
 }
 
 .masthead-nav > li {
@@ -85,20 +98,23 @@ body {
   font-size: 16px;
   font-weight: 700;
   color: #fff; /* IE8 proofing */
-  color: rgba(255, 255, 255, .75);
+  /* color: rgba(255, 255, 255, .75); */
+  color: var(--mtextcolor);
   border-bottom: 2px solid transparent;
 }
 .masthead-nav > li > a:hover,
 .masthead-nav > li > a:focus {
   background-color: transparent;
-  border-bottom-color: #a9a9a9;
-  border-bottom-color: rgba(255, 255, 255, .25);
+  /* border-bottom-color: #a9a9a9; */
+  /* border-bottom-color: rgba(255, 255, 255, .25); */
+  border-bottom-color: var(--bg-light);
 }
 .masthead-nav > .active > a,
 .masthead-nav > .active > a:hover,
 .masthead-nav > .active > a:focus {
-  color: #fff;
-  border-bottom-color: #fff;
+  /* color: #fff; */
+  color: var(--mtextcolor);
+  border-bottom-color: var(--mtextcolor);
 }
 
 @media (min-width: 768px) {
