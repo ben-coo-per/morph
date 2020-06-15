@@ -1,13 +1,11 @@
-improve rotation:
-  maybe just do only around the y axis?
-
-fiddle around with vertex shape creation:
-  toruses are great but cant give flexibility
-
-
-
-
-
+User Flow:
+1. draw curve
+2. drawn curve is translated into vertices (connected w/ lines)
+    -can drag & move vertices around on drawspace
+    -slider selection of how many vertices are created
+3. select rotation amount(&resolution) --> render revolve
+    -log shapes up to that revolve amount and then add to it with new revolve
+    -keep track of these revolutions up until 360˚ -->present tracking on UI
 
 
 
@@ -17,6 +15,11 @@ fiddle around with vertex shape creation:
 
 
 
+
+
+
+
+----------------------------------------------
 
 5. add a ‘sculpting’/‘shaping’ tool               |                         |
     -> push around and place the pre-drawn curves how you like

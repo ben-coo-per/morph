@@ -1,0 +1,3 @@
+function leastSquares(numVertices, pointArray){
+
+}
