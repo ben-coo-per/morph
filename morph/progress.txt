@@ -1,9 +1,9 @@
 User Flow:
-1. draw curve
-2. drawn curve is translated into vertices (connected w/ lines)
+1. draw curve                                                                   done
+2. drawn curve is translated into vertices (connected w/ lines)                 done
     -can drag & move vertices around on drawspace
     -slider selection of how many vertices are created
-3. select rotation amount(&resolution) --> render revolve
+3. select rotation amount(&resolution) --> render revolve                       wait on this until you release 1st version (hard code rotation @360 for now)
     -log shapes up to that revolve amount and then add to it with new revolve
     -keep track of these revolutions up until 360˚ -->present tracking on UI
 

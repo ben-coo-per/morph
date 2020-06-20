@@ -207,17 +207,39 @@ body {
   background-color: #f4f1f2;
   height:75vh;
   border-radius:50px;
+  margin: 10px;
+  margin-top: 11vh;
 }
 
 .creationSpace-toolbar{
   /* margin:; */
   padding-left: 5vw;
   padding-right: 5vw;
-
 }
 
 .color-slidecontainer{
   display: flex;
   padding-top: 0px;
   padding-bottom: 0px;
+}
+
+#numVerticeSlider{
+  margin-top: 2vh;
+}
+
+#sizeWarning{
+  display: none;
+  height:100vh;
+  width:100vw;
+  color: var(--mtextcolor);
+}
+
+
+@media (max-height: 658px){
+  #sizeWarning{
+    display:block;
+  }
+  #studio{
+    display:none;
+  }
 }
