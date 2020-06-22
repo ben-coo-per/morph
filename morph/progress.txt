@@ -9,7 +9,8 @@ User Flow:
 
 
 
-
+BUGS:
+-Scrolling when drawing on mobile
 
 
 

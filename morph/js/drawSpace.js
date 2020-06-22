@@ -1,5 +1,10 @@
 
-var canvasSizes = {x: document.documentElement.clientWidth*0.4, y: document.documentElement.clientHeight*0.6};
+// var canvasSizes = {x: document.documentElement.clientWidth, y: document.documentElement.clientHeight};
+if (document.documentElement.clientWidth > 1200){
+  var canvasSizes = {x: document.documentElement.clientWidth*0.66667, y: document.documentElement.clientHeight};
+} else{
+  var canvasSizes = {x: document.documentElement.clientWidth, y: document.documentElement.clientHeight};
+}
 var shapeArray = [];
 var tempArray = [];
 var renderPoly = {x:10,y:5};
@@ -9,12 +14,20 @@ var vertexArray =[];
 window.addEventListener('resize', resizeCanvas);
 
 function resizeCanvas(){
+  if (document.documentElement.clientWidth > 1200){
+    var canvasSizes = {x: document.documentElement.clientWidth*0.66667, y: document.documentElement.clientHeight};
+  } else{
+    var canvasSizes = {x: document.documentElement.clientWidth, y: document.documentElement.clientHeight};
+  }
 
-  var canvasSizes = {x: document.documentElement.clientWidth*0.4, y: document.documentElement.clientHeight*0.6};
-  myDrawSpace.resizeCanvas(canvasSizes.x,canvasSizes.y);
-  myThreeD.resizeCanvas(canvasSizes.x,canvasSizes.y);
+  myDrawSpace.resizeCanvas(canvasSizes.x*0.4,canvasSizes.y * 0.35);
+  myThreeD.resizeCanvas(canvasSizes.x * 0.9,canvasSizes.y*0.5);
   myDrawSpace.clearDrawSpace()
 }
+
+
+
+
 
 var sketch1 = function(p){
 
@@ -26,19 +39,19 @@ var sketch1 = function(p){
   p.vertexCleanBinary = 0;
   p.drawMode = 'paint'; //vertex, paint, or erase
   p.movingBinary = 0;
-
+  p.txt = 'draw'
   // p.dxThresh = 1.50;
   // p.runBinary = 0; //0=shape path is not running on a curve & 1 = it is
   // p.runDirection; //0=running to the left & 1= to the right
 
   p.setup = function() {
     //create scene
-    p.canvas = p.createCanvas(canvasSizes.x,canvasSizes.y);
+    p.canvas = p.createCanvas(canvasSizes.x*0.4,canvasSizes.y*0.35);
 
     p.drawSpace = p.createGraphics(p.canvas.width, p.canvas.height);
     p.selectedCol = p.color(140); //selected button color
     p.unselectedCol = p.color(230); //unselected button color
-    // p.drawSpace.background(200);
+
   };
 
 //-----------standard draw loop---------
@@ -88,8 +101,9 @@ var sketch1 = function(p){
       }
 
     }
-
+    // p.stroke(1);
     p.image(p.drawSpace, 0, 0);
+    p.text(p.txt, 10,10,30,30);
 
     if(renderBinary){
       myDrawSpace.export();
@@ -122,6 +136,7 @@ p.cleanShapeArray = function(){
         p.shapeArray.push(p.newShape);
         p.vertexCleanBinary = 1;
         document.getElementById("numVerticeSlider").value = p.round(p.shapeArray.length*0.15);
+
       }
 
       if (p.mirrorOn == 1){
@@ -233,59 +248,6 @@ p.cleanShapeArray = function(){
       this.y = p.mouseY;
     };
 
-
-
-  // p.vertice = function(shape){
-  //   this.x = shape.x;
-  //   this.y = shape.y;
-  // };
-  //
-  // p.shapesToVertices = function(){
-  //
-  //   //start vertice creation
-  //   this.startVert = new p.vertice(p.shapeArray[0]);
-  //   vertexArray.push(this.startVert);
-  //
-  //   // this.step = Math.round(p.shapeArray.length/p.numVertices);
-  //   for(let i = 0; i < (p.shapeArray.length - 1); i++){
-  //     this.newVert = new p.vertice(p.shapeArray[i]);
-  //     vertexArray.push(this.newVert);
-  //   }
-  //
-  //   //end vertice creation
-  //   this.endVert = new p.vertice(p.shapeArray[p.shapeArray.length-1]);
-  //   vertexArray.push(this.endVert);
-
-    //run through shape array
-    // for(let i = 1; i < p.shapeArray.length; i++){
-    //   this.dx = (p.shapeArray[i].x - p.shapeArray[i-1].x);
-    //
-    //   if(p.runBinary){
-    //     if(p.runDirection && this.dx>0){
-    //       this.newVert = new p.vertice(p.shapeArray[i]);
-    //       p.runBinary = 0;
-    //       p.runDirection;
-    //       console.log('stopped');
-    //     }
-    //
-    //   }else{
-    //     if(p.abs(this.dx) > p.dxThresh){
-    //       this.newVert = new p.vertice(p.shapeArray[i]);
-    //       p.runBinary=1;
-    //       if(this.dx < 0){
-    //         p.runDirection = 0;
-    //         console.log('left');
-    //       } else{
-    //         p.runDirection = 1;
-    //       }
-    //     };
-    //   };
-    //
-    //   vertexArray.push(this.newVert);
-    // };
-  // }
-
-
   p.shapesToVertices = function(){
     p.vertShapeArray = [];
     divideBy = p.round(p.shapeArray.length/p.numVertices);
@@ -303,7 +265,10 @@ p.cleanShapeArray = function(){
       let justCleared = p.shapeArray.splice(0, p.shapeArray.length);
       p.drawSpace.background(p.color(244, 241,242));
       p.drawSpace.stroke(1);
+      p.drawMode = 'paint';
+      p.txt = "draw"
     }
+
     p.togglePaintBrush = function(){
       //change colors of buttons
       p.drawMode = 'paint';
@@ -311,23 +276,24 @@ p.cleanShapeArray = function(){
     p.toggleVertexBrush = function() {
       //change colors of buttons
       p.drawMode = 'vertex';
+
     }
-    // p.toggleCircleBrush = function(){
-    //   //change colors of buttons
-    //   p.brushChoice = 0;
+
+    // p.next = function() {
+    //   if (p.drawMode == 'paint'){
+    //     p.drawMode = 'vertex';
+    //     p.txt = "adjust"
+    //   } else if (p.drawMode = 'vertex';){
+    //     //add logic to change DOM elements to next page
+    //   }
     // }
-    // p.toggleSquareBrush = function() {
-    //   //change colors of buttons
-    //   p.brushChoice = 1;
-    // }
-    // p.undoClear = function(){}
+
 
   p.export = function(){
     shapeArray = p.vertShapeArray;
   }
 
-};
-
+}
 
 var myDrawSpace = new p5(sketch1,"drawSpace-div");
 
@@ -341,52 +307,46 @@ var sketch2 = function(p){
   p.vertexArray = [];
 
   p.setup = function(array){
-    p.threeDCanvas = p.createCanvas(canvasSizes.x, canvasSizes.y, p.WEBGL);
+    p.threeDCanvas = p.createCanvas(canvasSizes.x * 0.9, canvasSizes.y*0.5, p.WEBGL);
+    // new p.camera(0,0,-10,0,0,0,0,0,0);
 
-    p.background(p.color(244, 241,242));
+    // p.background(p.color(41, 50,65));
   }
 
   p.draw = function(){
-    p.orbitControl();
+    p.orbitControl(10,10,0.1);
+    p.clear();
+
     p.angleMode(p.DEGREES);
-    p.rSlider = document.getElementById("rSlider");
-    p.gSlider = document.getElementById("gSlider");
-    p.bSlider = document.getElementById("bSlider");
-    // p.rotationAmount = document.getElementById('rotation slider');
-
-    // p.ambientLight(255,255,255);
-    // p.directionalLight(255,255,255);
-    p.materialColor = p.color(p.rSlider.value, p.gSlider.value, p.bSlider.value)
-    p.noStroke();
-
-    // p.rotationAmount = document.getElementById("rotationSlider").value;
-    // p.res = document.getElementById("resolutionSlider").value;
 
 
-    p.directionalLight(255,255,255,1,1,-1);
-    // p.ambientLight(20);
-    p.background(p.color(244, 241,242));
+    //-------keeping incase I want to include in the future---------
+        // p.rSlider = document.getElementById("rSlider");
+        // p.gSlider = document.getElementById("gSlider");
+        // p.bSlider = document.getElementById("bSlider");
+
+        // p.materialColor = p.color(p.rSlider.value, p.gSlider.value, p.bSlider.value)
+
+
+        // p.rotationAmount = document.getElementById("rotationSlider").value;
+        // p.res = document.getElementById("resolutionSlider").value;
+
+
+    // p.noStroke();
+    p.stroke(200);
+    p.strokeWeight(0.1)
+    p.ambientLight(160);
+    p.pointLight(250, 250, 250, -1, 0, -1);
+    p.materialColor = p.color(135, 132, 179);
 
 
     p.yAvg = p.findYCenter();
     p.drawSpaceWidth = myDrawSpace.width;
 
-    //--------------create slices from array and make toruses-----
-
-    // quadSurface = new p.quadSurface();
-    // quadSurface.createVertices();
-
-    // p.stroke(0);
-    // p.beginShape();
-    // p.vertex(0,0,0);
-    // p.vertex(0,160,0);
-    // p.vertex(160,160,0);
-    // p.vertex(160,0,0);
-    // p.endShape();
   if (renderBinary == 1){   //checks if rendering is on
     p.updateRender();
-  };
-};
+  }
+}
 
   p.mappedCurve = function(shape){
     this.y = shape.y;

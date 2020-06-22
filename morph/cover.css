@@ -80,6 +80,7 @@ body {
  * Header
  */
 .masthead-brand {
+  z-index: 10;
   margin-top: 10px;
   margin-bottom: 10px;
   color: #fff; /* IE8 proofing */
@@ -179,6 +180,7 @@ body {
   .mastfoot,
   .cover-container {
     width: 700px;
+    margin-bottom: 100px;
   }
 }
 
@@ -192,24 +194,60 @@ body {
   align-items: center;
 } */
 
-/* #threeD-div{
-  width:45vw;
-  height:61vh;
-  border-radius:50px;
-  background:rgb(250,20,100);
+#threeD-div{
+  /* margin-top: 50vh; */
+  z-index: 2;
+  /* position: absolute;
+  top:-20vh; */
+  /* background:rgb(250,20,100); */
   display: flex;
   justify-content: center;
   align-items: center;
-} */
+}
 
-.creationSpace{
+.adjustment-card{
+  background-color: #f4f1f2;
+  margin-top: 2em;
+  padding: 0.5em;
+
+}
+
+.slider-card{
+    border-radius: 1vw;
+
+}
+
+.button-card{
+  padding:10px;
+  border-radius: 1vw;
+  /* width: 6em ;
+  height: 6em ; */
+
+
+
+}
+
+
+
+
+#creationSpace{
   padding: 1em;
   background-color: #f4f1f2;
-  height:75vh;
+  height:40vh;
   border-radius:50px;
-  margin: 10px;
-  margin-top: 11vh;
+  margin: 0px;
+  margin-top: 0vh;
 }
+
+
+.color-slides{
+  padding: 1em;
+  background-color: #f4f1f2;
+  border-radius:50px;
+  margin: 0px;
+  margin-top: 0vh;
+}
+
 
 .creationSpace-toolbar{
   /* margin:; */
@@ -223,9 +261,7 @@ body {
   padding-bottom: 0px;
 }
 
-#numVerticeSlider{
-  margin-top: 2vh;
-}
+
 
 #sizeWarning{
   display: none;
