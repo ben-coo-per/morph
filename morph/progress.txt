@@ -9,8 +9,29 @@ User Flow:
 
 
 
+
+Front End:
+-help modal
+-sign up page from next button
+-sign up modal pop up after (1-2)minutes
+-home page
+
+
+
+
 BUGS:
--Scrolling when drawing on mobile
+1.Scrolling when drawing on mobile
+2.Browser issues:
+    Chrome: no issues
+    Safari: issues showing shapes in drawSpace
+        -shows up then disappears when move to 'home' page and back
+              -> problem seems to be with running the image() command on safari
+              ->could rewrite to just draw directly on canvas. In hindsight, I don't really know why i did this in the first place.
+        -there is also a partial overlap of the 3d render space w/ the nav options
+              ->the render space need to be shifted down slightly
+    Edge: no issues
+    Firefox: no issues
+
 
 
 

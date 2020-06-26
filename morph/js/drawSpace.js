@@ -1,6 +1,6 @@
 
 // var canvasSizes = {x: document.documentElement.clientWidth, y: document.documentElement.clientHeight};
-if (document.documentElement.clientWidth > 1200){
+if (document.documentElement.clientWidth > 768){
   var canvasSizes = {x: document.documentElement.clientWidth*0.66667, y: document.documentElement.clientHeight};
 } else{
   var canvasSizes = {x: document.documentElement.clientWidth, y: document.documentElement.clientHeight};
@@ -14,7 +14,7 @@ var vertexArray =[];
 window.addEventListener('resize', resizeCanvas);
 
 function resizeCanvas(){
-  if (document.documentElement.clientWidth > 1200){
+  if (document.documentElement.clientWidth > 768){
     var canvasSizes = {x: document.documentElement.clientWidth*0.66667, y: document.documentElement.clientHeight};
   } else{
     var canvasSizes = {x: document.documentElement.clientWidth, y: document.documentElement.clientHeight};
@@ -51,6 +51,7 @@ var sketch1 = function(p){
     p.drawSpace = p.createGraphics(p.canvas.width, p.canvas.height);
     p.selectedCol = p.color(140); //selected button color
     p.unselectedCol = p.color(230); //unselected button color
+    // p.background(10);
 
   };
 
@@ -274,9 +275,12 @@ p.cleanShapeArray = function(){
       p.drawMode = 'paint';
     }
     p.toggleVertexBrush = function() {
-      //change colors of buttons
-      p.drawMode = 'vertex';
-
+        if (p.drawMode == 'paint'){
+          p.drawMode = 'vertex';
+          p.txt = "adjust"
+        } else {
+          //add logic to change DOM elements to next page
+        }
     }
 
     // p.next = function() {
