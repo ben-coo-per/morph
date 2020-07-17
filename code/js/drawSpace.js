@@ -1,4 +1,6 @@
 // var canvasSizes = {x: document.documentElement.clientWidth, y: document.documentElement.clientHeight};
+
+
 if (document.documentElement.clientWidth > 990) {
   var canvasSizes = {
     x: document.documentElement.clientWidth * 0.66667,
@@ -16,12 +18,13 @@ var renderPoly = { x: 10, y: 5 };
 var renderBinary = 1; //0 = not rendering & 1 = rendering
 var vertexArray = [];
 var stuff_drawn_binary = 0;
+window.addEventListener("resize", resizeCanvasesFromWindowResize);
 
-window.addEventListener("resize", resizeCanvas);
+
 
 //open modal on load:
 
-function resizeCanvas() {
+function resizeCanvasesFromWindowResize() {
   if (document.documentElement.clientWidth > 990) {
     var canvasSizes = {
       x: document.documentElement.clientWidth * 0.66667,
@@ -81,6 +84,7 @@ function disableScroll() {
   window.addEventListener("keydown", preventDefaultForScrollKeys, false);
 }
 
+disableScroll();
 // call this to Enable
 function enableScroll() {
   window.removeEventListener("DOMMouseScroll", preventDefault, false);
@@ -205,7 +209,6 @@ var sketch1 = function (p) {
           p.shapeArray.length * 0.15
         );
         stuff_drawn_binary = 1;
-        disableScroll();
       }
 
       // if (p.mirrorOn == 1){
@@ -217,13 +220,11 @@ var sketch1 = function (p) {
         p.overBool = p.shapeArray[i].isOver();
         if (p.overBool) {
           p.shapeArray[i].moveShape();
-          disableScroll();
           // console.log(p.movingBinary);
         }
       }
       // p.movingBinary = 0;
     }
-    enableScroll();
   };
 
   p.mouseReleased = function () {

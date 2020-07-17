@@ -1,18 +1,18 @@
 /* CSS */
 :root {
   /* option 1 for color scheme */
-  --bg-light: #3d5a80;
-  --graylights: #bfc0c0;
-  --mlightlights: #f4f1f2;
-  --mtextcolor: #ee6c4d;
-  --bg-dark: #293241;
+  --bg-light: #838E83;
+  --graylights: #EBC3DB;
+  --mlightlights: #F6E4F6;
+  --mtextcolor: #F15A24;
+  --bg-dark: #6C6061;
 
   /* option 2 for color scheme */
-  --purple-x-11: hsla(265, 68%, 93%, 1);
+  /* --purple-x-11: hsla(265, 68%, 93%, 1);
   --persian-indigo: hsla(255, 87%, 47%, 1);
   --blue-jeans: hsla(201, 100%, 97%, 1);
   --medium-spring-green: hsla(156, 100%, 97%, 1);
-  --orchid: hsla(301, 54%, 90%, 1);
+  --orchid: hsla(301, 54%, 90%, 1); */
 }
 /* Links */
 a,
@@ -211,6 +211,7 @@ body {
 .button-card {
   padding: 0px;
   border-radius: 1vw;
+  background: none !important;
   /* width: 6em ;
   height: 6em ; */
 }
@@ -218,6 +219,7 @@ body {
 .button-card img {
   height: 6vh;
   cursor: pointer;
+
 }
 
 #creationSpace {
