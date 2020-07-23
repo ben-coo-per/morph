@@ -2,8 +2,8 @@
 :root {
   /* option 1 for color scheme */
   --bg-light: #838E83;
-  --graylights: #EBC3DB;
-  --mlightlights: #F6E4F6;
+  --graylights: #DADAF5;
+  --mlightlights: #F9F9F9;
   --mtextcolor: #F15A24;
   --bg-dark: #6C6061;
 
@@ -173,7 +173,7 @@ body {
   .mastfoot,
   .cover-container {
     width: 700px;
-    margin-bottom: 100px;
+    /* margin-bottom: 100px; */
   }
 }
 
@@ -188,7 +188,7 @@ body {
 } */
 
 #threeD-div {
-  margin-top: 50px;
+  /* margin-top: 50px; */
   z-index: 2;
   /* position: absolute;
   top:-20vh; */
@@ -288,6 +288,7 @@ body {
   position: relative;
   top: 0em;
   left: 0em;
+
 }
 
 .email-submission {
@@ -317,10 +318,10 @@ input:-webkit-autofill:active {
   margin-left: -20px;
   height: 2em;
   width: 6em;
-  color: var(--mtextcolor);
+  color: black;
   /* color: green; */
   font-weight: bold;
-  background-color: var(--bg-dark);
+  background-color: var(--mtextcolor);
 }
 
 #order-submission-row {

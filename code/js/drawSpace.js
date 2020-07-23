@@ -4,7 +4,7 @@
 if (document.documentElement.clientWidth > 990) {
   var canvasSizes = {
     x: document.documentElement.clientWidth * 0.66667,
-    y: document.documentElement.clientHeight,
+    y: document.documentElement.clientHeight * 0.97,
   };
 } else {
   var canvasSizes = {
@@ -25,10 +25,10 @@ window.addEventListener("resize", resizeCanvasesFromWindowResize);
 //open modal on load:
 
 function resizeCanvasesFromWindowResize() {
-  if (document.documentElement.clientWidth > 990) {
+  if (document.documentElement.clientWidth > 989) {
     var canvasSizes = {
       x: document.documentElement.clientWidth * 0.66667,
-      y: document.documentElement.clientHeight,
+      y: document.documentElement.clientHeight*0.97,
     };
   } else {
     var canvasSizes = {
@@ -257,7 +257,7 @@ var sketch1 = function (p) {
     this.thickness = 16;
     this.brushChoice = p.brushChoice;
 
-    this.baseColor = p.color(43, 55, 90);
+    this.baseColor = p.color(130);
     this.hoverColor = p.color(220, 123, 90);
   };
 
@@ -332,7 +332,7 @@ var sketch1 = function (p) {
   //--------Buttons----------
   p.clearDrawSpace = function () {
     let justCleared = p.shapeArray.splice(0, p.shapeArray.length);
-    p.background(p.color(244, 241, 242));
+    p.background(p.color(249));
     p.stroke(1);
     p.drawMode = "paint";
     document.getElementById("drawspace-text").innerHTML = "draw";
@@ -397,6 +397,7 @@ var sketch2 = function (p) {
     // new p.camera(0,0,-10,0,0,0,0,0,0);
 
     // p.background(p.color(41, 50,65));
+
   };
 
   p.draw = function () {
@@ -404,7 +405,7 @@ var sketch2 = function (p) {
       p.orbitControl(10, 10, 0.1);
     }
     p.clear();
-
+    // p.background(30);
     p.angleMode(p.DEGREES);
 
     //-------keeping incase I want to include in the future---------
@@ -511,7 +512,8 @@ var sketch2 = function (p) {
     return (p.topCoord + p.bottomCoord) / 2;
   };
 };
-var myThreeD = new p5(sketch2, "threeD-div");
+
+var myThreeD = new p5(sketch2, "threeD-div", wheelDefaultDisabled = true);
 
 function render() {
   //change button text
