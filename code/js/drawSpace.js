@@ -113,7 +113,7 @@ var sketch1 = function (p) {
     // p.drawSpace = p.createGraphics(p.canvas.width, p.canvas.height);
     p.selectedCol = p.color(140); //selected button color
     p.unselectedCol = p.color(230); //unselected button color
-    // p.background(10);
+
   };
 
   //-----------standard draw loop---------
@@ -145,7 +145,7 @@ var sketch1 = function (p) {
         }
       }
     } else if (p.drawMode == "vertex") {
-      p.background(242);
+      p.background(249);
       p.stroke(1);
       p.line(p.canvas.width / 2, 0, p.canvas.width / 2, p.canvas.height);
       for (let i = 0; i < p.vertShapeArray.length; i++) {
@@ -336,6 +336,7 @@ var sketch1 = function (p) {
     p.stroke(1);
     p.drawMode = "paint";
     document.getElementById("drawspace-text").innerHTML = "draw";
+    document.getElementById("nextButtonImg").src = "../../img/icons/next-arrow.png";
     stuff_drawn_binary = 0;
   };
 
@@ -347,7 +348,7 @@ var sketch1 = function (p) {
     if (p.drawMode == "paint") {
       p.drawMode = "vertex";
       document.getElementById("drawspace-text").innerHTML = "adjust";
-      document.getElementById("nextButtonImg").img.src = "shopping-cart.png";
+      document.getElementById("nextButtonImg").src = "../../img/icons/shopping-cart.png";
     } else {
       //Add DOM element for checkout purposes ->for now this can just be an email collector
       document.getElementById("order-submission-row").style.display = "block";
@@ -394,9 +395,7 @@ var sketch2 = function (p) {
       canvasSizes.y * 0.4,
       p.WEBGL
     );
-    // new p.camera(0,0,-10,0,0,0,0,0,0);
 
-    // p.background(p.color(41, 50,65));
 
   };
 
@@ -405,7 +404,7 @@ var sketch2 = function (p) {
       p.orbitControl(10, 10, 0.1);
     }
     p.clear();
-    // p.background(30);
+
     p.angleMode(p.DEGREES);
 
     //-------keeping incase I want to include in the future---------
