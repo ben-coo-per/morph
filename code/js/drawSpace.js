@@ -1,8 +1,10 @@
 // var canvasSizes = {x: document.documentElement.clientWidth, y: document.documentElement.clientHeight};
+
+
 if (document.documentElement.clientWidth > 990) {
   var canvasSizes = {
     x: document.documentElement.clientWidth * 0.66667,
-    y: document.documentElement.clientHeight,
+    y: document.documentElement.clientHeight * 0.97,
   };
 } else {
   var canvasSizes = {
@@ -16,16 +18,17 @@ var renderPoly = { x: 10, y: 5 };
 var renderBinary = 1; //0 = not rendering & 1 = rendering
 var vertexArray = [];
 var stuff_drawn_binary = 0;
+window.addEventListener("resize", resizeCanvasesFromWindowResize);
 
-window.addEventListener("resize", resizeCanvas);
+
 
 //open modal on load:
 
-function resizeCanvas() {
-  if (document.documentElement.clientWidth > 990) {
+function resizeCanvasesFromWindowResize() {
+  if (document.documentElement.clientWidth > 989) {
     var canvasSizes = {
       x: document.documentElement.clientWidth * 0.66667,
-      y: document.documentElement.clientHeight,
+      y: document.documentElement.clientHeight*0.97,
     };
   } else {
     var canvasSizes = {
@@ -81,6 +84,7 @@ function disableScroll() {
   window.addEventListener("keydown", preventDefaultForScrollKeys, false);
 }
 
+disableScroll();
 // call this to Enable
 function enableScroll() {
   window.removeEventListener("DOMMouseScroll", preventDefault, false);
@@ -109,7 +113,7 @@ var sketch1 = function (p) {
     // p.drawSpace = p.createGraphics(p.canvas.width, p.canvas.height);
     p.selectedCol = p.color(140); //selected button color
     p.unselectedCol = p.color(230); //unselected button color
-    // p.background(10);
+
   };
 
   //-----------standard draw loop---------
@@ -141,7 +145,7 @@ var sketch1 = function (p) {
         }
       }
     } else if (p.drawMode == "vertex") {
-      p.background(242);
+      p.background(249);
       p.stroke(1);
       p.line(p.canvas.width / 2, 0, p.canvas.width / 2, p.canvas.height);
       for (let i = 0; i < p.vertShapeArray.length; i++) {
@@ -205,7 +209,6 @@ var sketch1 = function (p) {
           p.shapeArray.length * 0.15
         );
         stuff_drawn_binary = 1;
-        disableScroll();
       }
 
       // if (p.mirrorOn == 1){
@@ -217,13 +220,11 @@ var sketch1 = function (p) {
         p.overBool = p.shapeArray[i].isOver();
         if (p.overBool) {
           p.shapeArray[i].moveShape();
-          disableScroll();
           // console.log(p.movingBinary);
         }
       }
       // p.movingBinary = 0;
     }
-    enableScroll();
   };
 
   p.mouseReleased = function () {
@@ -256,7 +257,7 @@ var sketch1 = function (p) {
     this.thickness = 16;
     this.brushChoice = p.brushChoice;
 
-    this.baseColor = p.color(43, 55, 90);
+    this.baseColor = p.color(130);
     this.hoverColor = p.color(220, 123, 90);
   };
 
@@ -331,10 +332,11 @@ var sketch1 = function (p) {
   //--------Buttons----------
   p.clearDrawSpace = function () {
     let justCleared = p.shapeArray.splice(0, p.shapeArray.length);
-    p.background(p.color(244, 241, 242));
+    p.background(p.color(249));
     p.stroke(1);
     p.drawMode = "paint";
     document.getElementById("drawspace-text").innerHTML = "draw";
+    document.getElementById("nextButtonImg").src = "../../img/icons/next-arrow.png";
     stuff_drawn_binary = 0;
   };
 
@@ -346,7 +348,7 @@ var sketch1 = function (p) {
     if (p.drawMode == "paint") {
       p.drawMode = "vertex";
       document.getElementById("drawspace-text").innerHTML = "adjust";
-      document.getElementById("nextButtonImg").img.src = "shopping-cart.png";
+      document.getElementById("nextButtonImg").src = "../../img/icons/shopping-cart.png";
     } else {
       //Add DOM element for checkout purposes ->for now this can just be an email collector
       document.getElementById("order-submission-row").style.display = "block";
@@ -393,9 +395,8 @@ var sketch2 = function (p) {
       canvasSizes.y * 0.4,
       p.WEBGL
     );
-    // new p.camera(0,0,-10,0,0,0,0,0,0);
 
-    // p.background(p.color(41, 50,65));
+
   };
 
   p.draw = function () {
@@ -510,7 +511,8 @@ var sketch2 = function (p) {
     return (p.topCoord + p.bottomCoord) / 2;
   };
 };
-var myThreeD = new p5(sketch2, "threeD-div");
+
+var myThreeD = new p5(sketch2, "threeD-div", wheelDefaultDisabled = true);
 
 function render() {
   //change button text

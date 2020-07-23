@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <link rel="icon" href="../img/favicon.ico">
+
+    <title>morph</title>
+
+
+    <link href="bootstrap.min.css" rel="stylesheet" />
+    <link href="cover.css" rel="stylesheet" />
+
+    <script>
+      $(document).ready(function () {
+        $("#contactModal").modal("show");
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container" id="sizeWarning">
+          <div class="container d-flex h-100 w-100">
+            <h1>please increase your browser window height</h1>
+            <p>the studio requires a bit more space</p>
+          </div>
+        </div>
+
+        <div class="cover-container" id="studio">
+          <div class="masthead clearfix">
+            <div class="inner">
+              <img class=class="masthead-brand" src="../img/logo.png"  alt="morph" style="width:7em;">
+              <!-- <h3 class="masthead-brand">morph</h3> -->
+              <!-- <nav>
+                <ul class="nav masthead-nav">
+                  <li><a href="home.html">home</a></li>
+                  <li class="active"><a href="studio.html">studio</a></li>
+                </ul>
+              </nav> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="inner cover">
+          <div class="flex-row">
+            <!--Render Space-->
+            <div
+              class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+              style="margin-top: 0.5em;"
+            >
+              <div id="threeD-div"></div>
+            </div>
+
+            <!--MODAL-->
+            <div
+              class="modal fade"
+              id="helpModalCenter"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalCenterTitle"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" style="font-size: 2em;">
+                      how to use morph studio
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <!-- Wrapper for slides -->
+                    <div id="carousel">
+                      <div class="carousel slide">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                          <li
+                            data-target="#carousel-example-generic"
+                            data-slide-to="0"
+                            class="active"
+                          ></li>
+                          <li
+                            data-target="#carousel-example-generic"
+                            data-slide-to="1"
+                          ></li>
+                          <li
+                            data-target="#carousel-example-generic"
+                            data-slide-to="2"
+                          ></li>
+                          <li
+                            data-target="#carousel-example-generic"
+                            data-slide-to="3"
+                          ></li>
+                          <li
+                            data-target="#carousel-example-generic"
+                            data-slide-to="4"
+                          ></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                          <div class="item active">
+                            <div class="carousel-caption">
+                              <h1 style="color:black">draw curve</h1>
+                              <!-- <p>Draw the side-view of your pot with the center acting as the center axis of the model </p> -->
+                            </div>
+                            <video width="600" height="350" autoplay muted loop>
+                                <source src="../help-vids/mp4/draw.mp4" type="video/mp4">
+                                  <source src="../help-vids/webm/draw.webm" type="video/ogg">
+                                    Your browser does not support the video tag.
+                            </video>
+
+                          </div>
+
+                          <div class="item">
+                            <video width="600" height="350" autoplay muted loop>
+                                <source src="../help-vids/mp4/adjust-slider.mp4" type="video/mp4">
+                                <!-- <source src="../help-vids/webm/adjust-slider.webm" type="video/ogg"> -->
+                                  Your browser does not support the video tag.
+                            </video>
+                            <div class="carousel-caption">
+                              <h1 style="color:black">adjust detail</h1>
+                              <!-- <p>Draw the side-view of your pot with the center acting as the center axis of the model </p> -->
+                            </div>
+
+                          </div>
+
+                          <div class="item">
+                            <video width="600" height="350" autoplay muted loop>
+                                <source src="../help-vids/mp4/adjust-vertices.mp4" type="video/mp4">
+                                <!-- <source src="../help-vids/webm/adjust-vertices.webm" type="video/ogg"> -->
+                                  Your browser does not support the video tag.
+                            </video>
+                            <div class="carousel-caption">
+                              <h1 style="color:black">adjust vertices</h1>
+                              <!-- <p>Draw the side-view of your pot with the center acting as the center axis of the model </p> -->
+                            </div>
+                          </div>
+
+                          <div class="item">
+                            <video width="600" height="350" autoplay muted loop>
+                                <source src="../help-vids/mp4/drag-view.mp4" type="video/mp4">
+                                <source src="../help-vids/webm/drag-view.webm" type="video/ogg">
+                                  Your browser does not support the video tag.
+                            </video>
+                            <div class="carousel-caption">
+                              <h1 style="color:black">drag to change view</h1>
+                              <!-- <p>Draw the side-view of your pot with the center acting as the center axis of the model </p> -->
+                            </div>
+                          </div>
+                          <div class="item">
+                            <video width="600" height="350" autoplay muted loop>
+                                <source src="../help-vids/mp4/delete.mp4" type="video/mp4">
+                                <source src="../help-vids/webm/delete.webm" type="video/ogg">
+                                  Your browser does not support the video tag.
+                            </video>
+                            <div class="carousel-caption">
+                              <h1 style="color:black">delete to start over</h1>
+                              <!-- <p>Draw the side-view of your pot with the center acting as the center axis of the model </p> -->
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Controls -->
+                        <a
+                          class="left carousel-control"
+                          href="#carousel"
+                          data-slide="prev"
+                        >
+                          <span class="icon-prev"></span>
+                        </a>
+                        <a
+                          class="right carousel-control"
+                          href="#carousel"
+                          data-slide="next"
+                        >
+                          <span class="icon-next"></span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="modal fade"
+              id="contactModal"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalCenterTitle"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <h2 style="margin-left: 0px;">
+                      Hey there,
+                    </h2>
+                    <h3>thanks for dropping by</h3>
+                    <p style="font-size: 1em;">
+                      I just wanted to let you know that morph is an ongoing
+                      project and in the future I will be adding many more
+                      customization options and products for you to customize.
+                      <br />
+                      If you want to stay in touch please enter your email
+                      below.
+                    </p>
+                    <form
+                      class="email-submission"
+                      action="emailsubmission.php"
+                      method="post"
+                    >
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="your email"
+                        required
+                      />
+                      <button type="submit" name="submit">submit</button>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Drawing and adjustments Space-->
+          <div class="flex-row" id="order-submission-row">
+            <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
+            <div class="col-xs-12 col-sm-11 col-md-8 col-lg-8">
+              <div
+                class="card"
+                id="checkout-card"
+                style="
+                  padding: 1em;
+                  height: 32vh;
+                  border-radius: 50px;
+                  margin: 3vh 0px 3vh 0px;
+                "
+              >
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-xs-1 col-sm-2">
+                      <a id="back-button" onclick="myDrawSpace.backButton()" >
+                        <img src="../img/icons/back-arrow.png" style="width: 1.5em; margin:1em" alt="back"
+                      />
+                      </a>
+                    </div>
+                    <div class="col-xs-10 col-sm-8">
+                      <h3 style="margin-left: 0px;">
+                        Ordering is coming soon!
+                      </h3>
+                      <p style="font-size: 1em;">
+                        I'm not quite ready to fill your order, but stay tuned!
+                        There are more products and customization options on the
+                        way.
+                      </p>
+                      <div class="">
+                        <form class="email-submission" id="emailSubmissionForm">
+                          <input
+                            type="email"
+                            name="email"
+                            placeholder="your email"
+                            id="emailAddress"
+                            required
+                          />
+                          <button type="submit" name="submit">submit</button>
+                          <!-- <p id="submit-message"></p> -->
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
+          </div>
+          <div class="flex-row" id="drawingAndAdjustments">
+            <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
+            <div class="col-xs-7 col-sm-6 col-md-4 col-lg-4">
+              <div class="card" id="creationSpace">
+                <div class="card-header" id="drawspace-text">draw</div>
+                <div class="card-body">
+                  <div class="card-img-top" id="drawSpace-div"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-5 col-sm-6 col-md-4 col-lg-4" id="adjustments">
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <div
+                    class="card adjustment-card slider-card"
+                    id="detail-slide"
+                  >
+                    <div class="card-header">detail</div>
+                    <div class="card-body">
+                      <div class="slidecontainer">
+                        <input
+                          type="range"
+                          min="4"
+                          max="20"
+                          value="16"
+                          class="slider"
+                          id="numVerticeSlider"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                  <div
+                    class="card adjustment-card button-card"
+                    id="clearButton"
+                  >
+                    <a onclick="myDrawSpace.clearDrawSpace()"
+                      ><img src="../img/icons/trash.png"  alt="clear"
+                    /></a>
+                  </div>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                  <div class="card adjustment-card button-card" id="helpButton">
+                    <a href="#"
+                      ><img
+                        src="../img/icons/question-mark.png"
+                        alt="help"
+
+                        data-toggle="modal"
+                        data-target="#helpModalCenter"
+                    /></a>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                  <div class="card adjustment-card button-card" id="nextButton">
+                    <a onclick="myDrawSpace.toggleVertexBrush()"
+                      ><img src="../img/icons/next-arrow.png" id="nextButtonImg"  alt="next"
+                    /></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
+          </div>
+        </div>
+
+
+    </div>
+
+    <!-- <div class="mastfoot">
+      <div class="inner">
+        <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+      </div>
+    </div> -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script
+      src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.jQuery ||
+        document.write(
+          '<script src="../../assets/js/vendor/jquery.min.js"><\/script>'
+        );
+    </script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/p5.js"></script>
+    <script src="js/drawSpace.js"></script>
+    <!-- <script src="js/other.js"></script> -->
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script> -->
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

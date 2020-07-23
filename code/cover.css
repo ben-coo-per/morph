@@ -1,18 +1,18 @@
 /* CSS */
 :root {
   /* option 1 for color scheme */
-  --bg-light: #3d5a80;
-  --graylights: #bfc0c0;
-  --mlightlights: #f4f1f2;
-  --mtextcolor: #ee6c4d;
-  --bg-dark: #293241;
+  --bg-light: #838E83;
+  --graylights: #DADAF5;
+  --mlightlights: #F9F9F9;
+  --mtextcolor: #F15A24;
+  --bg-dark: #6C6061;
 
   /* option 2 for color scheme */
-  --purple-x-11: hsla(265, 68%, 93%, 1);
+  /* --purple-x-11: hsla(265, 68%, 93%, 1);
   --persian-indigo: hsla(255, 87%, 47%, 1);
   --blue-jeans: hsla(201, 100%, 97%, 1);
   --medium-spring-green: hsla(156, 100%, 97%, 1);
-  --orchid: hsla(301, 54%, 90%, 1);
+  --orchid: hsla(301, 54%, 90%, 1); */
 }
 /* Links */
 a,
@@ -173,7 +173,7 @@ body {
   .mastfoot,
   .cover-container {
     width: 700px;
-    margin-bottom: 100px;
+    /* margin-bottom: 100px; */
   }
 }
 
@@ -188,7 +188,7 @@ body {
 } */
 
 #threeD-div {
-  margin-top: 50px;
+  /* margin-top: 50px; */
   z-index: 2;
   /* position: absolute;
   top:-20vh; */
@@ -211,6 +211,7 @@ body {
 .button-card {
   padding: 0px;
   border-radius: 1vw;
+  background: none !important;
   /* width: 6em ;
   height: 6em ; */
 }
@@ -218,6 +219,7 @@ body {
 .button-card img {
   height: 6vh;
   cursor: pointer;
+
 }
 
 #creationSpace {
@@ -286,6 +288,7 @@ body {
   position: relative;
   top: 0em;
   left: 0em;
+
 }
 
 .email-submission {
@@ -306,19 +309,19 @@ input:-webkit-autofill:active {
   margin-right: 0px;
   padding-left: 0.5em;
   height: 2em;
-  width: 18em;
+  width: 32vw;
   background-color: var(--graylights);
 }
 .email-submission button {
   border-radius: 20px 20px 20px 20px;
   border: none;
-  margin-left: -20px;
+  margin-left: -6vw;
   height: 2em;
   width: 6em;
-  color: var(--mtextcolor);
+  color: black;
   /* color: green; */
   font-weight: bold;
-  background-color: var(--bg-dark);
+  background-color: var(--mtextcolor);
 }
 
 #order-submission-row {
